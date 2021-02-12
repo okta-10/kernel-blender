@@ -1,0 +1,17 @@
+kind: pipeline
+name: Mystic Kernel
+
+steps:
+- name: Building Mystic Kernel
+  image: okta10/docker:latest
+  environment: 
+    TOKED:
+      from_secret: TOKED
+    TELEGRAM_TOKEN:
+      from_secret: TELEGRAM_TOKEN
+    CHANNEL_ID:
+      from_secret: CHANNEL_ID
+
+  commands:
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild"
+    - bash doBuild
