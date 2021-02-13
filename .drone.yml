@@ -1,5 +1,5 @@
 kind: pipeline
-name: Mystic Kernel
+name: Mystic Kernel (MSM-4.4)
 
 steps:
 - name: Building Mystic Kernel
@@ -13,5 +13,18 @@ steps:
       from_secret: CHANNEL_ID
 
   commands:
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild"
-    - bash doBuild
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart"
+    - bash doStart beta
+    - cd kernel
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild"
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush"
+    - bash doBuild whyredoldcam sdm636 beta
+    - bash doBuild whyrednewcam sdm636 beta
+    - bash doBuild tulipoldcam sdm636 beta
+    - bash doBuild tulipnewcam sdm636 beta
+    - bash doBuild lavenderoldcam sdm660 beta
+    - bash doBuild lavendernewcam sdm660 beta
+    - bash doBuild a26xoldcam sdm660 beta
+    - bash doBuild a26xnewcam sdm660 beta
+    - bash doBuild a26xtencam sdm660 beta
+    - bash doPush beta
