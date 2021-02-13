@@ -1,5 +1,5 @@
 kind: pipeline
-name: Mystic Kernel
+name: Mystic Kernel (MSM-4.19)
 
 steps:
 - name: Building Mystic Kernel
@@ -14,4 +14,4 @@ steps:
 
   commands:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild"
-    - bash doBuild
+    - bash doBuild beta
