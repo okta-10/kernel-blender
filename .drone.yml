@@ -13,5 +13,11 @@ steps:
       from_secret: CHANNEL_ID
 
   commands:
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart"
+    - bash doStart beta
+    - cd kernel
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild"
-    - bash doBuild beta
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush"
+    - bash doBuild whyred beta
+    - bash doBuild a26x beta
+    - bash doPush beta
