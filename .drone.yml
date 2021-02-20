@@ -20,4 +20,5 @@ steps:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush"
     - bash doBuild whyred beta
     - bash doBuild a26x beta
+    - bash doBuild lavender beta
     - bash doPush beta
