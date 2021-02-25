@@ -18,13 +18,19 @@ steps:
     - cd kernel
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild"
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush"
-    - bash doBuild whyredoldcam sdm636 beta
-    - bash doBuild whyrednewcam sdm636 beta
-    - bash doBuild tulipoldcam sdm636 beta
-    - bash doBuild tulipnewcam sdm636 beta
-    - bash doBuild lavenderoldcam sdm660 beta
-    - bash doBuild lavendernewcam sdm660 beta
-    - bash doBuild a26xoldcam sdm660 beta
-    - bash doBuild a26xnewcam sdm660 beta
-    - bash doBuild a26xtencam sdm660 beta
+    - bash doBuild whyredoldcam beta
+    - bash doBuild whyrednewcam beta
+    - bash doBuild tulipoldcam beta
+    - bash doBuild tulipnewcam beta
+    - bash doBuild lavenderoldcam beta
+    - bash doBuild lavendernewcam beta
+    - bash doBuild a26xoldcam beta
+    - bash doBuild a26xnewcam beta
+    - bash doBuild a26xtencam beta
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch"
+    - git apply oc_4.4.patch
+    - bash doBuild ocwhyredold beta
+    - bash doBuild ocwhyrednew beta
+    - bash doBuild octulipold beta
+    - bash doBuild octulipnew beta
     - bash doPush beta
