@@ -14,4 +14,4 @@ steps:
 
   commands:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.14/doBuild"
-    - bash doBuild
+    - bash doBuild beta
