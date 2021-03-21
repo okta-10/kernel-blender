@@ -16,21 +16,20 @@ steps:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart"
     - bash doStart beta
     - cd kernel
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild"
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush"
-    - bash doBuild whyred oldcam
-    - bash doBuild whyred newcam
-    - bash doBuild tulip oldcam
-    - bash doBuild tulip newcam
-    - bash doBuild lavender oldcam
-    - bash doBuild lavender newcam
-    - bash doBuild a26x oldcam
-    - bash doBuild a26x newcam
-    - bash doBuild a26x tencam
+    - bash build whyred oldcam
+    - bash build whyred newcam
+    - bash build tulip oldcam
+    - bash build tulip newcam
+    - bash build lavender oldcam
+    - bash build lavender newcam
+    - bash build a26x oldcam
+    - bash build a26x newcam
+    - bash build a26x tencam
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch"
     - git apply oc_4.4.patch
-    - bash doBuild whyred oldcam oc
-    - bash doBuild whyred newcam oc
-    - bash doBuild tulip oldcam oc
-    - bash doBuild tulip newcam oc
+    - bash build whyred oldcam oc
+    - bash build whyred newcam oc
+    - bash build tulip oldcam oc
+    - bash build tulip newcam oc
     - bash doPush beta
