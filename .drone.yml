@@ -16,12 +16,11 @@ steps:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart"
     - bash doStart beta
     - cd kernel
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild"
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush"
-    - bash doBuild whyred
-    - bash doBuild a26x
-    - bash doBuild lavender
+    - bash build whyred
+    - bash build a26x
+    - bash build lavender
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch"
     - git apply oc_4.19.patch
-    - bash doBuild whyred oc
+    - bash build whyred oc
     - bash doPush beta
