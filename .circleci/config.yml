@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: okta10/docker:ubuntu
+    steps:
+      - run: git clone --depth=1 https://github.com/okta-10/mystic_kernel_sdm660-4.19.git -b Mystic-4.19 .
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart
+      - run: bash doStart
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush
+      - run: bash doBuild whyred
+      - run: bash doBuild lavender
+      - run: bash doBuild a26x
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch
+      - run: git apply oc_4.19.patch
+      - run: bash doBuild whyred oc
+      - run: bash doPush
