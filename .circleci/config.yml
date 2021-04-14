@@ -1,0 +1,9 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: okta10/docker:ubuntu
+    steps:
+      - run: git clone --depth=1 https://github.com/okta-10/mystic_kernel_sdm732-4.14.git -b Mystic-4.14 .
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.14/doBuild
+      - run: bash doBuild
