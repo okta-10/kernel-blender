@@ -6,23 +6,23 @@ jobs:
     steps:
       - run: git clone --depth=1 https://github.com/okta-10/mystic_kernel_sdm660-4.4.git -b Mystic-4.4 .
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart
-      - run: bash doStart clang
+      - run: bash doStart gcc
       - run: cd kernel
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush
-      - run: bash doBuild whyred oldcam clang
-      - run: bash doBuild whyred newcam clang
-      - run: bash doBuild tulip oldcam clang
-      - run: bash doBuild tulip newcam clang
-      - run: bash doBuild lavender oldcam clang
-      - run: bash doBuild lavender newcam clang
-      - run: bash doBuild a26x oldcam clang
-      - run: bash doBuild a26x newcam clang
-      - run: bash doBuild a26x tencam clang
+      - run: bash doBuild whyred oldcam gcc
+      - run: bash doBuild whyred newcam gcc
+      - run: bash doBuild tulip oldcam gcc
+      - run: bash doBuild tulip newcam gcc
+      - run: bash doBuild lavender oldcam gcc
+      - run: bash doBuild lavender newcam gcc
+      - run: bash doBuild a26x oldcam gcc
+      - run: bash doBuild a26x newcam gcc
+      - run: bash doBuild a26x tencam gcc
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch
       - run: git apply oc_4.4.patch
-      - run: bash doBuild whyred oldcam oc clang
-      - run: bash doBuild whyred newcam oc clang
-      - run: bash doBuild tulip oldcam oc clang
-      - run: bash doBuild tulip newcam oc clang
-      - run: bash doPush clang
+      - run: bash doBuild whyred oldcam oc gcc
+      - run: bash doBuild whyred newcam oc gcc
+      - run: bash doBuild tulip oldcam oc gcc
+      - run: bash doBuild tulip newcam oc gcc
+      - run: bash doPush gcc
