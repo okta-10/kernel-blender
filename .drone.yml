@@ -14,13 +14,13 @@ steps:
 
   commands:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart"
-    - bash doStart beta clang
+    - bash doStart beta gcc
     - cd kernel
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush"
-    - bash build whyred clang
-    - bash build a26x clang
-    - bash build lavender clang
+    - bash build whyred gcc
+    - bash build a26x gcc
+    - bash build lavender gcc
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch"
     - git apply oc_4.19.patch
-    - bash build whyred oc clang
-    - bash doPush beta clang
+    - bash build whyred oc gcc
+    - bash doPush beta gcc
