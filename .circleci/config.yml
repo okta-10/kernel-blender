@@ -16,6 +16,7 @@ jobs:
       - run: bash doBuild tulip newcam gcc
       - run: bash doBuild lavender oldcam gcc
       - run: bash doBuild lavender newcam gcc
+      - run: bash doBuild lavender qtihaptics gcc
       - run: bash doBuild a26x oldcam gcc
       - run: bash doBuild a26x newcam gcc
       - run: bash doBuild a26x tencam gcc

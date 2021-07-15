@@ -23,6 +23,7 @@ steps:
     - bash build tulip newcam gcc
     - bash build lavender oldcam gcc
     - bash build lavender newcam gcc
+    - bash build lavender qtihaptics gcc
     - bash build a26x oldcam gcc
     - bash build a26x newcam gcc
     - bash build a26x tencam gcc
