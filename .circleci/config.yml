@@ -9,20 +9,20 @@ jobs:
       - run: bash doStart gcc
       - run: cd kernel
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush
-      - run: bash build whyred oldcam gcc
-      - run: bash build whyred newcam gcc
-      - run: bash build tulip oldcam gcc
-      - run: bash build tulip newcam gcc
-      - run: bash build lavender oldcam gcc
-      - run: bash build lavender newcam gcc
-      - run: bash build lavender qtihaptics gcc
-      - run: bash build a26x oldcam gcc
       - run: bash build a26x newcam gcc
+      - run: bash build a26x oldcam gcc
       - run: bash build a26x tencam gcc
+      - run: bash build lavender newcam gcc
+      - run: bash build lavender oldcam gcc
+      - run: bash build lavender qtihaptics gcc
+      - run: bash build tulip newcam gcc
+      - run: bash build tulip oldcam gcc
+      - run: bash build whyred newcam gcc
+      - run: bash build whyred oldcam gcc
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch
       - run: git apply oc_4.4.patch
-      - run: bash build whyred oldcam oc gcc
-      - run: bash build whyred newcam oc gcc
-      - run: bash build tulip oldcam oc gcc
       - run: bash build tulip newcam oc gcc
+      - run: bash build tulip oldcam oc gcc
+      - run: bash build whyred newcam oc gcc
+      - run: bash build whyred oldcam oc gcc
       - run: bash doPush gcc
