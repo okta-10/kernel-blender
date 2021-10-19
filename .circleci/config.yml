@@ -19,10 +19,12 @@ jobs:
       - run: bash build tulip oldcam gcc
       - run: bash build whyred newcam gcc
       - run: bash build whyred oldcam gcc
+      - run: bash build whyred qtihaptics gcc
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch
       - run: git apply oc_4.4.patch
       - run: bash build tulip newcam oc gcc
       - run: bash build tulip oldcam oc gcc
       - run: bash build whyred newcam oc gcc
       - run: bash build whyred oldcam oc gcc
+      - run: bash build whyred qtihaptics oc gcc
       - run: bash doPush gcc
