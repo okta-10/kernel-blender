@@ -17,9 +17,9 @@ steps:
     - bash doStart beta gcc
     - cd kernel
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush"
-    - bash build whyred gcc
     - bash build a26x gcc
     - bash build lavender gcc
+    - bash build whyred gcc
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch"
     - git apply oc_4.19.patch
     - bash build whyred oc gcc

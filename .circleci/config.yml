@@ -8,9 +8,9 @@ jobs:
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart
       - run: bash doStart gcc
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush
-      - run: bash build whyred gcc
       - run: bash build lavender gcc
       - run: bash build a26x gcc
+      - run: bash build whyred gcc
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch
       - run: git apply oc_4.19.patch
       - run: bash build whyred oc gcc
