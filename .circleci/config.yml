@@ -5,13 +5,13 @@ jobs:
       - image: okta10/docker:ubuntu
     steps:
       - run: git clone --depth=1 https://"${TOKED}":x-oauth-basic@github.com/okta-10/mystic-beta.git -b Mystic-4.19 .
-      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart
-      - run: bash doStart gcc
-      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush
-      - run: bash build lavender gcc
-      - run: bash build a26x gcc
-      - run: bash build whyred gcc
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart.sh
+      - run: bash doStart.sh clang
+      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush.sh
+      - run: bash doBuild.sh a26x clang
+      - run: bash doBuild.sh lavender clang
+      - run: bash doBuild.sh whyred clang
       - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch
       - run: git apply oc_4.19.patch
-      - run: bash build whyred oc gcc
-      - run: bash doPush gcc
+      - run: bash doBuild.sh whyred oc clang
+      - run: bash doPush.sh clang
