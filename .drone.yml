@@ -13,26 +13,23 @@ steps:
       from_secret: CHANNEL_ID
 
   commands:
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart"
-    - bash doStart beta gcc
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart.sh"
+    - bash doStart.sh beta clang
     - cd kernel
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush"
-    - bash build a26x newcam gcc
-    - bash build a26x oldcam gcc
-    - bash build a26x tencam gcc
-    - bash build lavender newcam gcc
-    - bash build lavender oldcam gcc
-    - bash build lavender qtihaptics gcc
-    - bash build tulip newcam gcc
-    - bash build tulip oldcam gcc
-    - bash build whyred newcam gcc
-    - bash build whyred oldcam gcc
-    - bash build whyred qtihaptics gcc
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush.sh"
+    - bash doBuild.sh a26x newcam clang
+    - bash doBuild.sh a26x oldcam clang
+    - bash doBuild.sh a26x tencam clang
+    - bash doBuild.sh lavender newcam clang
+    - bash doBuild.sh lavender oldcam clang
+    - bash doBuild.sh tulip newcam clang
+    - bash doBuild.sh tulip oldcam clang
+    - bash doBuild.sh whyred newcam clang
+    - bash doBuild.sh whyred oldcam clang
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch"
     - git apply oc_4.4.patch
-    - bash build tulip newcam oc gcc
-    - bash build tulip oldcam oc gcc
-    - bash build whyred newcam oc gcc
-    - bash build whyred oldcam oc gcc
-    - bash build whyred qtihaptics oc gcc
-    - bash doPush beta gcc
+    - bash doBuild.sh tulip newcam oc clang
+    - bash doBuild.sh tulip oldcam oc clang
+    - bash doBuild.sh whyred newcam oc clang
+    - bash doBuild.sh whyred oldcam oc clang
+    - bash doPush.sh clang
