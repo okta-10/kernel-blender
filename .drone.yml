@@ -5,13 +5,13 @@ steps:
 - name: Building Mystic Kernel
   image: okta10/docker:ubuntu
   environment: 
-    TOKED:
-      from_secret: TOKED
-    TELEGRAM_TOKEN:
-      from_secret: TELEGRAM_TOKEN
-    CHANNEL_ID:
-      from_secret: CHANNEL_ID
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+    TG_BOT_TOKEN:
+      from_secret: TG_BOT_TOKEN
+    TG_CHAT_ID:
+      from_secret: TG_CHAT_ID
 
   commands:
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.14/doBuild"
-    - bash doBuild beta clang
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.14/doBuild.sh"
+    - bash doBuild.sh stable gcc
