@@ -5,22 +5,23 @@ steps:
 - name: Building Mystic Kernel
   image: okta10/docker:debian
   environment: 
-    TOKED:
-      from_secret: TOKED
-    TELEGRAM_TOKEN:
-      from_secret: TELEGRAM_TOKEN
-    CHANNEL_ID:
-      from_secret: CHANNEL_ID
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+    TG_BOT_TOKEN:
+      from_secret: TG_BOT_TOKEN
+    TG_CHAT_ID:
+      from_secret: TG_CHAT_ID
 
   commands:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doStart.sh"
     - bash doStart.sh beta clang
     - cd kernel
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doPush.sh"
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doBuild.sh"
     - bash doBuild.sh a26x clang
     - bash doBuild.sh lavender clang
     - bash doBuild.sh whyred clang
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.19.patch"
     - git apply oc_4.19.patch
     - bash doBuild.sh whyred oc clang
-    - bash doPush.sh clang
+    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.19/doFinal.sh"
+    - bash doFinal.sh clang
