@@ -4,24 +4,27 @@ jobs:
     docker:
       - image: okta10/docker:ubuntu
     steps:
-      - run: git clone --depth=1 https://"${TOKED}":x-oauth-basic@github.com/okta-10/mystic-beta.git -b Mystic-4.4 .
-      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart.sh
-      - run: bash doStart.sh gcc
-      - run: cd kernel
-      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doPush.sh
-      - run: bash doBuild.sh a26x newcam gcc
-      - run: bash doBuild.sh a26x oldcam gcc
-      - run: bash doBuild.sh a26x tencam gcc
-      - run: bash doBuild.sh lavender newcam gcc
-      - run: bash doBuild.sh lavender oldcam gcc
-      - run: bash doBuild.sh tulip newcam gcc
-      - run: bash doBuild.sh tulip oldcam gcc
-      - run: bash doBuild.sh whyred newcam gcc
-      - run: bash doBuild.sh whyred oldcam gcc
-      - run: wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch
-      - run: git apply oc_4.4.patch
-      - run: bash doBuild.sh tulip newcam oc gcc
-      - run: bash doBuild.sh tulip oldcam oc gcc
-      - run: bash doBuild.sh whyred newcam oc gcc
-      - run: bash doBuild.sh whyred oldcam oc gcc
-      - run: bash doPush.sh gcc
+      - run:
+          name: Building Mystic Kernel
+          command: |
+            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart.sh
+            bash doStart.sh beta gcc
+            cd kernel
+            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild.sh
+            bash doBuild.sh a26x newcam gcc
+            bash doBuild.sh a26x oldcam gcc
+            bash doBuild.sh a26x tencam gcc
+            bash doBuild.sh lavender newcam gcc
+            bash doBuild.sh lavender oldcam gcc
+            bash doBuild.sh tulip newcam gcc
+            bash doBuild.sh tulip oldcam gcc
+            bash doBuild.sh whyred newcam gcc
+            bash doBuild.sh whyred oldcam gcc
+            wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch
+            git apply oc_4.4.patch
+            bash doBuild.sh tulip newcam oc gcc
+            bash doBuild.sh tulip oldcam oc gcc
+            bash doBuild.sh whyred newcam oc gcc
+            bash doBuild.sh whyred oldcam oc gcc
+            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doFinal.sh
+            bash doFinal.sh gcc
