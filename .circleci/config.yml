@@ -20,11 +20,5 @@ jobs:
             bash doBuild.sh tulip oldcam gcc
             bash doBuild.sh whyred newcam gcc
             bash doBuild.sh whyred oldcam gcc
-            wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/oc_4.4.patch
-            git apply oc_4.4.patch
-            bash doBuild.sh tulip newcam oc gcc
-            bash doBuild.sh tulip oldcam oc gcc
-            bash doBuild.sh whyred newcam oc gcc
-            bash doBuild.sh whyred oldcam oc gcc
             wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doFinal.sh
             bash doFinal.sh gcc
