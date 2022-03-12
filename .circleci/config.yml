@@ -15,8 +15,7 @@ jobs:
             bash doBuild_dtb.sh lavender gcc qpnp
             bash doBuild_dtb.sh tulip gcc qpnp
             bash doBuild_dtb.sh whyred gcc qpnp
-            wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/qti_haptic.patch
-            git apply qti_haptic.patch
+            git apply qti.patch
             bash doBuild_dtb.sh a26x gcc qti
             bash doBuild_dtb.sh lavender gcc qti
             bash doBuild_dtb.sh tulip gcc qti
@@ -32,5 +31,16 @@ jobs:
             bash doBuild.sh tulip oldcam gcc
             bash doBuild.sh whyred newcam gcc
             bash doBuild.sh whyred oldcam gcc
+            git apply oc.patch
+            bash doBuild_dtb.sh tulip gcc qpnp
+            bash doBuild_dtb.sh whyred gcc qpnp
+            git apply qti.patch
+            bash doBuild_dtb.sh tulip gcc qti
+            bash doBuild_dtb.sh whyred gcc qti
+            git restore .
+            bash doBuild.sh tulip newcam oc gcc
+            bash doBuild.sh tulip oldcam oc gcc
+            bash doBuild.sh whyred newcam oc gcc
+            bash doBuild.sh whyred oldcam oc gcc
             wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doFinal.sh
             bash doFinal.sh gcc

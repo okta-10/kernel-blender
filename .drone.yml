@@ -21,8 +21,7 @@ steps:
     - bash doBuild_dtb.sh lavender clang qpnp
     - bash doBuild_dtb.sh tulip clang qpnp
     - bash doBuild_dtb.sh whyred clang qpnp
-    - "wget https://raw.githubusercontent.com/okta-10/scripts/main/patch/qti_haptic.patch"
-    - git apply qti_haptic.patch
+    - git apply qti.patch
     - bash doBuild_dtb.sh a26x clang qti
     - bash doBuild_dtb.sh lavender clang qti
     - bash doBuild_dtb.sh tulip clang qti
@@ -38,5 +37,16 @@ steps:
     - bash doBuild.sh tulip oldcam clang
     - bash doBuild.sh whyred newcam clang
     - bash doBuild.sh whyred oldcam clang
+    - git apply oc.patch
+    - bash doBuild_dtb.sh tulip clang qpnp
+    - bash doBuild_dtb.sh whyred clang qpnp
+    - git apply qti.patch
+    - bash doBuild_dtb.sh tulip clang qti
+    - bash doBuild_dtb.sh whyred clang qti
+    - git restore .
+    - bash doBuild.sh tulip newcam oc clang
+    - bash doBuild.sh tulip oldcam oc clang
+    - bash doBuild.sh whyred newcam oc clang
+    - bash doBuild.sh whyred oldcam oc clang
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doFinal.sh"
     - bash doFinal.sh clang
