@@ -14,39 +14,39 @@ steps:
 
   commands:
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart.sh"
-    - bash doStart.sh beta clang
+    - bash doStart.sh beta gcc
     - cd kernel
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild_dtb.sh"
-    - bash doBuild_dtb.sh a26x clang qpnp
-    - bash doBuild_dtb.sh lavender clang qpnp
-    - bash doBuild_dtb.sh tulip clang qpnp
-    - bash doBuild_dtb.sh whyred clang qpnp
+    - bash doBuild_dtb.sh a26x gcc qpnp
+    - bash doBuild_dtb.sh lavender gcc qpnp
+    - bash doBuild_dtb.sh tulip gcc qpnp
+    - bash doBuild_dtb.sh whyred gcc qpnp
     - git apply qti.patch
-    - bash doBuild_dtb.sh a26x clang qti
-    - bash doBuild_dtb.sh lavender clang qti
-    - bash doBuild_dtb.sh tulip clang qti
-    - bash doBuild_dtb.sh whyred clang qti
+    - bash doBuild_dtb.sh a26x gcc qti
+    - bash doBuild_dtb.sh lavender gcc qti
+    - bash doBuild_dtb.sh tulip gcc qti
+    - bash doBuild_dtb.sh whyred gcc qti
     - git restore .
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild.sh"
-    - bash doBuild.sh a26x newcam clang
-    - bash doBuild.sh a26x oldcam clang
-    - bash doBuild.sh a26x tencam clang
-    - bash doBuild.sh lavender newcam clang
-    - bash doBuild.sh lavender oldcam clang
-    - bash doBuild.sh tulip newcam clang
-    - bash doBuild.sh tulip oldcam clang
-    - bash doBuild.sh whyred newcam clang
-    - bash doBuild.sh whyred oldcam clang
+    - bash doBuild.sh a26x newcam gcc
+    - bash doBuild.sh a26x oldcam gcc
+    - bash doBuild.sh a26x tencam gcc
+    - bash doBuild.sh lavender newcam gcc
+    - bash doBuild.sh lavender oldcam gcc
+    - bash doBuild.sh tulip newcam gcc
+    - bash doBuild.sh tulip oldcam gcc
+    - bash doBuild.sh whyred newcam gcc
+    - bash doBuild.sh whyred oldcam gcc
     - git apply oc.patch
-    - bash doBuild_dtb.sh tulip clang qpnp
-    - bash doBuild_dtb.sh whyred clang qpnp
+    - bash doBuild_dtb.sh tulip gcc qpnp
+    - bash doBuild_dtb.sh whyred gcc qpnp
     - git apply qti.patch
-    - bash doBuild_dtb.sh tulip clang qti
-    - bash doBuild_dtb.sh whyred clang qti
+    - bash doBuild_dtb.sh tulip gcc qti
+    - bash doBuild_dtb.sh whyred gcc qti
     - git restore .
-    - bash doBuild.sh tulip newcam oc clang
-    - bash doBuild.sh tulip oldcam oc clang
-    - bash doBuild.sh whyred newcam oc clang
-    - bash doBuild.sh whyred oldcam oc clang
+    - bash doBuild.sh tulip newcam oc gcc
+    - bash doBuild.sh tulip oldcam oc gcc
+    - bash doBuild.sh whyred newcam oc gcc
+    - bash doBuild.sh whyred oldcam oc gcc
     - "wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doFinal.sh"
-    - bash doFinal.sh clang
+    - bash doFinal.sh gcc
